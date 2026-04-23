@@ -28,12 +28,9 @@ export type TrackerView = {
 export async function getTrackerView(
   habitRepo: HabitRepository,
   logRepo: LogRepository,
-  today: string
+  today: string,
 ): Promise<TrackerView> {
-  const [allHabits, logs] = await Promise.all([
-    habitRepo.getAll(),
-    logRepo.getAll(),
-  ]);
+  const [allHabits, logs] = await Promise.all([habitRepo.getAll(), logRepo.getAll()]);
 
   const calendarKeys = lastNDaysKeys(CALENDAR_DAYS, today);
   const loggedDates = new Set(logs.map((l) => `${l.habitId}:${l.date}`));
@@ -54,10 +51,7 @@ export async function getTrackerView(
     return { habit, streak, hitCount, daysToUnlock, calendarDays, loggedToday };
   });
 
-  const longestStreak = activeViewModels.reduce(
-    (max, vm) => Math.max(max, vm.streak),
-    0
-  );
+  const longestStreak = activeViewModels.reduce((max, vm) => Math.max(max, vm.streak), 0);
   const completedToday = activeViewModels.filter((vm) => vm.loggedToday).length;
 
   return {

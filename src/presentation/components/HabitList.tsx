@@ -13,7 +13,7 @@ export function HabitList({ view, onToggle }: Props) {
   return (
     <div className="space-y-6">
       <section>
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3">
+        <h2 className="mb-3 text-xs font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
           Aktif alışkanlıklar
         </h2>
         <div className="space-y-2">
@@ -25,16 +25,12 @@ export function HabitList({ view, onToggle }: Props) {
 
       {view.lockedHabits.length > 0 && (
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3">
+          <h2 className="mb-3 text-xs font-semibold tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
             Sıradaki
           </h2>
           <div className="space-y-2">
             {view.lockedHabits.map((habit) => (
-              <LockedCard
-                key={habit.id}
-                habit={habit}
-                isNext={habit.id === view.nextHabit?.id}
-              />
+              <LockedCard key={habit.id} habit={habit} isNext={habit.id === view.nextHabit?.id} />
             ))}
           </div>
         </section>

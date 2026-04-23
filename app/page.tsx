@@ -19,13 +19,13 @@ export default function HomePage() {
   if (!hydrated || !view) {
     return (
       <main className="flex min-h-screen items-center justify-center">
-        <div className="w-6 h-6 rounded-full border-2 border-zinc-300 border-t-zinc-600 animate-spin" />
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-600" />
       </main>
     );
   }
 
   return (
-    <main className="max-w-md mx-auto px-4 py-8 pb-16">
+    <main className="mx-auto max-w-md px-4 py-8 pb-16">
       <DateHeader today={view.today} />
       <StatsRow
         totalActive={view.totalActive}

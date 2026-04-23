@@ -14,9 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" className={`${geist.variable} h-full`}>
-      <body className="min-h-full bg-zinc-50 dark:bg-zinc-950 antialiased">
-        {children}
-      </body>
+      <body className="min-h-full bg-zinc-50 antialiased dark:bg-zinc-950">{children}</body>
     </html>
   );
 }

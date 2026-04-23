@@ -14,8 +14,7 @@ export class ThresholdUnlockStrategy implements UnlockStrategy {
     const { activeHabits, allHabits, logs, today } = params;
 
     const anyQualifies = activeHabits.some(
-      (h) =>
-        hitCountInWindow(logs, h.id, UNLOCK_WINDOW, today) >= UNLOCK_THRESHOLD
+      (h) => hitCountInWindow(logs, h.id, UNLOCK_WINDOW, today) >= UNLOCK_THRESHOLD,
     );
 
     if (!anyQualifies) return null;

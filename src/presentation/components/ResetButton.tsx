@@ -9,10 +9,13 @@ export function ResetButton({ onReset }: Props) {
 
   if (confirming) {
     return (
-      <div className="flex items-center gap-2 justify-center">
+      <div className="flex items-center justify-center gap-2">
         <span className="text-sm text-zinc-500 dark:text-zinc-400">Emin misin?</span>
         <button
-          onClick={() => { onReset(); setConfirming(false); }}
+          onClick={() => {
+            onReset();
+            setConfirming(false);
+          }}
           className="text-sm font-medium text-red-500 hover:text-red-600 dark:text-red-400"
         >
           Sıfırla
@@ -30,7 +33,7 @@ export function ResetButton({ onReset }: Props) {
   return (
     <button
       onClick={() => setConfirming(true)}
-      className="text-xs text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
+      className="text-xs text-zinc-400 transition-colors hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400"
     >
       Sıfırla
     </button>

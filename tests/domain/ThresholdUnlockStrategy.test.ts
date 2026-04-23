@@ -35,7 +35,7 @@ describe("ThresholdUnlockStrategy", () => {
 
   it("unlocks next locked habit when threshold met", () => {
     const logs = Array.from({ length: 10 }, (_, i) =>
-      log("sleep", `2026-04-${String(14 + i).padStart(2, "0")}`)
+      log("sleep", `2026-04-${String(14 + i).padStart(2, "0")}`),
     );
     const result = strategy.shouldUnlockNext({
       activeHabits: allHabits.filter((h) => h.isActive),
@@ -49,7 +49,7 @@ describe("ThresholdUnlockStrategy", () => {
   it("returns null when all habits are already active", () => {
     const allActive = allHabits.map((h) => ({ ...h, isActive: true }));
     const logs = Array.from({ length: 10 }, (_, i) =>
-      log("sleep", `2026-04-${String(14 + i).padStart(2, "0")}`)
+      log("sleep", `2026-04-${String(14 + i).padStart(2, "0")}`),
     );
     const result = strategy.shouldUnlockNext({
       activeHabits: allActive,
@@ -62,7 +62,7 @@ describe("ThresholdUnlockStrategy", () => {
 
   it("returns null when threshold is 9 (one short)", () => {
     const logs = Array.from({ length: 9 }, (_, i) =>
-      log("sleep", `2026-04-${String(15 + i).padStart(2, "0")}`)
+      log("sleep", `2026-04-${String(15 + i).padStart(2, "0")}`),
     );
     const result = strategy.shouldUnlockNext({
       activeHabits: allHabits.filter((h) => h.isActive),
@@ -76,7 +76,7 @@ describe("ThresholdUnlockStrategy", () => {
   it("unlocks by order — picks lowest order locked habit", () => {
     // plan (order 4) should NOT be unlocked before move (order 3)
     const logs = Array.from({ length: 10 }, (_, i) =>
-      log("water", `2026-04-${String(14 + i).padStart(2, "0")}`)
+      log("water", `2026-04-${String(14 + i).padStart(2, "0")}`),
     );
     const result = strategy.shouldUnlockNext({
       activeHabits: allHabits.filter((h) => h.isActive),

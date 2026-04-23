@@ -15,14 +15,11 @@ export function StatsRow({ totalActive, longestStreak, completedToday, totalToda
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-3 mb-6">
+    <div className="mb-6 grid grid-cols-3 gap-3">
       {stats.map((s) => (
-        <div
-          key={s.label}
-          className="rounded-xl bg-zinc-100 dark:bg-zinc-800 p-3 text-center"
-        >
+        <div key={s.label} className="rounded-xl bg-zinc-100 p-3 text-center dark:bg-zinc-800">
           <p className="text-xl font-bold text-zinc-900 dark:text-white">{s.value}</p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">{s.label}</p>
+          <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">{s.label}</p>
         </div>
       ))}
     </div>

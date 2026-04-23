@@ -6,7 +6,7 @@ import { todayKey } from "@/src/domain/services/DateUtils";
 export async function checkUnlocks(
   habitRepo: HabitRepository,
   logRepo: LogRepository,
-  strategy: UnlockStrategy
+  strategy: UnlockStrategy,
 ): Promise<string | null> {
   const [activeHabits, allHabits, logs] = await Promise.all([
     habitRepo.getActive(),

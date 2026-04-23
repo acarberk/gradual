@@ -32,10 +32,7 @@ describe("calculateStreak", () => {
   });
 
   it("counts from yesterday if today not logged", () => {
-    const logs = [
-      log("sleep", "2026-04-21"),
-      log("sleep", "2026-04-22"),
-    ];
+    const logs = [log("sleep", "2026-04-21"), log("sleep", "2026-04-22")];
     expect(calculateStreak(logs, "sleep", "2026-04-23")).toBe(2);
   });
 
@@ -58,7 +55,7 @@ describe("calculateStreak", () => {
 describe("hitCountInWindow", () => {
   it("counts hits in last 14 days", () => {
     const logs = Array.from({ length: 10 }, (_, i) =>
-      log("sleep", `2026-04-${String(14 + i).padStart(2, "0")}`)
+      log("sleep", `2026-04-${String(14 + i).padStart(2, "0")}`),
     );
     expect(hitCountInWindow(logs, "sleep", 14, "2026-04-23")).toBe(10);
   });

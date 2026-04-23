@@ -1,14 +1,8 @@
 import type { HabitLog } from "../entities/HabitLog";
 import { addDays } from "./DateUtils";
 
-export function calculateStreak(
-  logs: HabitLog[],
-  habitId: string,
-  today: string
-): number {
-  const datesSet = new Set(
-    logs.filter((l) => l.habitId === habitId).map((l) => l.date)
-  );
+export function calculateStreak(logs: HabitLog[], habitId: string, today: string): number {
+  const datesSet = new Set(logs.filter((l) => l.habitId === habitId).map((l) => l.date));
 
   // Start from today if logged, otherwise from yesterday
   const startDay = datesSet.has(today) ? today : addDays(today, -1);
@@ -28,10 +22,9 @@ export function hitCountInWindow(
   logs: HabitLog[],
   habitId: string,
   windowDays: number,
-  today: string
+  today: string,
 ): number {
   const windowStart = addDays(today, -(windowDays - 1));
-  return logs.filter(
-    (l) => l.habitId === habitId && l.date >= windowStart && l.date <= today
-  ).length;
+  return logs.filter((l) => l.habitId === habitId && l.date >= windowStart && l.date <= today)
+    .length;
 }

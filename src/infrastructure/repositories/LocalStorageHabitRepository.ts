@@ -33,9 +33,7 @@ export class LocalStorageHabitRepository implements HabitRepository {
   }
 
   async activate(habitId: string): Promise<void> {
-    const habits = this.load().map((h) =>
-      h.id === habitId ? { ...h, isActive: true } : h
-    );
+    const habits = this.load().map((h) => (h.id === habitId ? { ...h, isActive: true } : h));
     this.save(habits);
   }
 
