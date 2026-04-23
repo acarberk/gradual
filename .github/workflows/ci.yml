@@ -12,9 +12,11 @@ concurrency:
 
 jobs:
   pipeline:
-    name: Lint, Type-Check, Test, Build
+    name: Lint, Type-Check, Test, Build, E2E
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -46,28 +48,6 @@ jobs:
 
       - name: Format check
         run: pnpm format:check
-
-  e2e:
-    name: Playwright E2E
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    needs: pipeline
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
 
       - name: Read Playwright version
         id: playwright-version
