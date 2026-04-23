@@ -35,7 +35,14 @@
     ]
   },
   "lint-staged": {
-    "*.{ts,tsx,js,mjs,cjs}": [
+    "apps/web/**/*.{ts,tsx,js,mjs,cjs}": [
+      "pnpm --filter @gradual/web exec eslint --fix",
+      "prettier --write"
+    ],
+    "packages/config/**/*.{js,mjs,cjs}": [
+      "prettier --write"
+    ],
+    "*.{js,mjs,cjs}": [
       "eslint --fix",
       "prettier --write"
     ],
