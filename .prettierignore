@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+build
+dist
+coverage
+.turbo
+.vercel
+docs/internal
+pnpm-lock.yaml
+*.tsbuildinfo
+next-env.d.ts
