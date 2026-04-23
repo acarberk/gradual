@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { toggleHabitForToday } from "@/src/application/ToggleHabitForToday";
 import * as DateUtils from "@/src/domain/services/DateUtils";
 import type { LogRepository } from "@/src/infrastructure/repositories/LogRepository";
@@ -17,7 +17,9 @@ const makeLogRepo = (initialLogs: { habitId: string; date: string }[] = []): Log
       if (idx >= 0) logs.splice(idx, 1);
       else logs.push({ habitId, date });
     },
-    reset: async () => { logs.length = 0; },
+    reset: async () => {
+      logs.length = 0;
+    },
   };
 };
 
