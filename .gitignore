@@ -40,8 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# claude code — local project memory (contains strategy, not committed)
-CLAUDE.md
-
-# internal docs — competitive analysis, roadmap, monetization (not public)
+# internal docs — CLAUDE.md project memory, competitive analysis, roadmap, monetization (not public)
 /docs/internal/
