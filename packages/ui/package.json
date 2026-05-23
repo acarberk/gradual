@@ -1,0 +1,39 @@
+{
+  "name": "@gradual/ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/components/*.tsx",
+    "./lib/cn": "./src/lib/cn.ts"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@gradual/config": "workspace:*",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^9",
+    "jsdom": "^29.1.1",
+    "typescript": "^5",
+    "vitest": "^4.1.6"
+  },
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  }
+}
