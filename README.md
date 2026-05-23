@@ -46,15 +46,41 @@ gradual/
 
 - Node.js 22+ (pinned via `.nvmrc`)
 - pnpm 10.32+ (via the root `packageManager` field)
+- Docker 24+ with Compose v2 (for local Postgres and Redis)
 
 ## Getting Started
 
 ```bash
 pnpm install
-pnpm turbo run dev
+cp .env.example .env
+cp apps/api/.env.example apps/api/.env
 ```
 
-The `web` app runs on [http://localhost:3000](http://localhost:3000).
+### Local Services
+
+PostgreSQL and Redis run in Docker for local development.
+
+```bash
+docker compose up -d       # start postgres and redis
+docker compose ps          # verify containers are healthy
+docker compose logs -f     # follow logs
+docker compose down        # stop containers (keeps data)
+docker compose down -v     # stop and wipe volumes (fresh start)
+```
+
+Defaults (override in `.env`):
+
+- PostgreSQL: `postgresql://gradual:gradual_dev_password@localhost:5432/gradual`
+- Redis: `redis://:gradual_dev_password@localhost:6379`
+
+### Run the apps
+
+```bash
+pnpm turbo run dev         # start everything
+```
+
+- `web` runs on [http://localhost:3000](http://localhost:3000)
+- `api` runs on [http://localhost:4000](http://localhost:4000) (health: `GET /health`)
 
 ## Common Commands
 

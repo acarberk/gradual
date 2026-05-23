@@ -4,6 +4,9 @@ export const envSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
   PORT: z.coerce.number().int().positive().default(4000),
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
+
+  DATABASE_URL: z.string().url().startsWith("postgresql://").optional(),
+  REDIS_URL: z.string().url().startsWith("redis://").optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;
