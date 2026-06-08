@@ -22,6 +22,6 @@
     "@gradual/config": "workspace:*",
     "eslint": "^9",
     "typescript": "^5",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.8"
   }
 }
