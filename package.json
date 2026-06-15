@@ -18,15 +18,15 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.1",
-    "@commitlint/config-conventional": "^21.0.1",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@gradual/config": "workspace:*",
     "eslint": "^9.39.4",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.5",
-    "prettier": "^3.8.3",
+    "lint-staged": "^17.0.7",
+    "prettier": "^3.8.4",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "turbo": "^2.9.14"
+    "turbo": "^2.9.18"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
