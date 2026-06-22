@@ -11,9 +11,9 @@
     "./prettier": "./prettier/index.mjs"
   },
   "dependencies": {
-    "eslint-config-next": "16.2.6",
+    "eslint-config-next": "16.2.9",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "typescript-eslint": "^8.59.3"
+    "typescript-eslint": "^8.61.1"
   },
   "peerDependencies": {
     "eslint": "^9",
